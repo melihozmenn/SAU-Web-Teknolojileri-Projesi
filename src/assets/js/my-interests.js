@@ -14,7 +14,8 @@ axios.get(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&languag
         </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">${item.title}</h5>
+              <h5 class="card-title">${item.title ? item.title : item.original_name}
+              </h5>
               <p class="card-text">${item.overview}</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>

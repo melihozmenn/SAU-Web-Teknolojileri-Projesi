@@ -4,16 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Giriş Yap</title>
+    <title>Ana Sayfa - Hakkımda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
+    <title>
+        <?php 
+
+            include("user.php");
+
+                if (($_POST["email"] == $user) and ($_POST["password"] == $pass)){
+                    $_SESSION["login"] = "true";
+                    $_SESSION["user"] = $user;
+                    $_SESSION["pass"] = $pass;
+                    $_SESSION["name"]=$name;
+
+                    echo("Hoşgeldiniz!");
+
+                }
+
+                else{
+                   echo "Tekrar Deneyiniz!";                       
+                }
+
+        ?>      
+    </title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
         <div class="container-xl">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" style="height:5rem ;"  ></a>
+            <a class="navbar-brand" href="index.html">Container XL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dropdown-navbar"
                 aria-controls="dropdown-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,7 +42,7 @@
             <div class="collapse navbar-collapse" id="dropdown-navbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Hakkımda</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Hakkımda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">İletişim</a>
@@ -43,22 +64,32 @@
         </div>
     </nav>
 
-    <div class="container mt-5 w-50 p-3 bg-dark text-white rounded-3">     
+    <div class="container mt-5 w-50 text-center p-5 bg-dark text-white rounded-3">
+	
+			<?php 
 
-        <form action="login.php" name="Form" method="POST">
-				<div class="form-group">
-					<label for="email">E-posta</label>
-					<input type="email" name="email" class="form-control my-2" placeholder="E-posta 'b201210083@sakarya.edu.tr'" required>
-				</div>
-				<div class="form-group">
-					<label for="password">Şifre</label>
-					<input type="password" name="password" class="form-control my-2" placeholder="Şifre 'b201210083'" required>
-				</div>
-				<button class="btn mt-3 btn-outline-success"  type="submit">Gönder</button>
-				<br><br><br>
-		</form>    
-                 
-    </div>
+				include("user.php");
+
+
+				if (($_POST["email"] == $user) and ($_POST["password"] == $pass)){
+			       $_SESSION["login"] = "true";
+			       $_SESSION["user"] = $user;
+			       $_SESSION["pass"] = $pass;
+                   $_SESSION["name"]=$name;
+			       echo("$name, <br> <br> Hoşgeldiniz!");                  
+                   header("Refresh: 2; url=index.html");
+                   
+				}
+			
+				else{
+			        echo "Kullancı Adı veya Şifre Yanlış.<br> <br>";
+			        echo "!!!TEKRAR DENEYİN!!!";
+			        header("Refresh: 2; url=login.html");
+			    }
+			
+			?>
+			
+    </div>
 
 </body>
 
@@ -81,6 +112,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="assets/js/script.js"></script>
 
 </html>

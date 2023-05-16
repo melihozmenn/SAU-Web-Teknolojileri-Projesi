@@ -7,8 +7,8 @@ axios.get(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&languag
     items = response.data.items;
     console.log(items)
     const cardHTML = items.map(item => `
-    <div class="card mb-3 mt-3 w-75 mx-auto">
-      <div class="row g-0">
+    <div class="card mb-3 mt-3 w-75 mx-auto border-0">
+      <div class="row g-0 bg-dark text-white ">
         <div class="col-md-4">
           <img src="${imagePath}/${item.poster_path}" class="img-fluid rounded-start" alt="...">
         </div>
@@ -22,6 +22,8 @@ axios.get(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&languag
           </div>
         </div>
     </div>
+    <hr class="text-white">
+
     `).join('');
     const cardContainer = document.querySelector('#myInterestDIV');
     cardContainer.innerHTML += cardHTML;

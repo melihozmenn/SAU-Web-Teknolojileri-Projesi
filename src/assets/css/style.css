@@ -1,0 +1,16 @@
+.scroll-up {
+    background-color: grey;
+    border-radius: 1rem;
+    padding: .5rem;
+    position: fixed;
+    bottom: 5rem;
+    right: 1.2rem;
+    text-decoration: none;
+    color: white;
+    z-index: 1;
+    transition: all .3s;
+}
+
+.scroll-up:hover {
+    color: rgb(39, 49, 94);
+}

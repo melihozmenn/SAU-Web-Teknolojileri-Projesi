@@ -1,8 +1,8 @@
-let apiKey="12bb66af19ada7d13d5fa96ebe207ecb";
-let listId="8252378";
-let imagePath="http://image.tmdb.org/t/p/original"
+let apiKey="12bb66af19ada7d13d5fa96ebe207ecb";// TMDB API key im
+let listId="8252378";// listId TMDB API'de favori listemin id si. 
+let imagePath="http://image.tmdb.org/t/p/original"//TMDB'den filmlerin kapak fotoğraflarını çekmek için gereken path
 let items = [];
-axios.get(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&language=tr-TR`)
+axios.get(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&language=tr-TR`)//API yi çekmek için gerekli olan kütüphane
   .then(function (response) {
     items = response.data.items;
     console.log(items)

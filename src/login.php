@@ -32,9 +32,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
         <div class="container-xl">
-            <a class="navbar-brand" href="index.html">Container XL</a>
+            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" style="height:5rem ;"  ></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dropdown-navbar"
                 aria-controls="dropdown-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
